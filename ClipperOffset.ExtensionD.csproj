@@ -1,13 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Optimize>true</Optimize>
+		<PublishTrimmed>true</PublishTrimmed>
+		<PackageId>ClipperOffset.ExtensionD</PackageId>
+		<Version>1.0.5</Version>
+		<Authors>Tailsghost</Authors>
+		<Product>ClipperOffset.ExtensionD</Product>
+		<Description>Расширение ClipperOffset с поддержкой PathsD.</Description>
+		<PackageProjectUrl>https://github.com/tailsghost/ClipperOffset.ExtensionD</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tailsghost/ClipperOffset.ExtensionD.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Clipper2" Version="1.4.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Clipper2" Version="1.4.0" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DefineConstants>TRACE;RELEASE</DefineConstants>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
 
 </Project>

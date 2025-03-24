@@ -1,36 +1,8 @@
-﻿namespace ClipperOffset.ExtensionD;
+﻿namespace ClipperOffsetD_Extension;
 
 using Clipper2Lib;
 using System.Runtime.CompilerServices;
-
-public interface IClipperOffsetD
-{
-    double ArcTolerance { get; set; }
-    bool MergeGroups { get; set; }
-    double MiterLimit { get; set; }
-    bool PreserveCollinear { get; set; }
-    bool ReverseSolution { get; set; }
-
-    void Clear();
-    void AddPath(PathD path, JoinType joinType, EndType endType);
-    void AddPaths(PathsD paths, JoinType joinType, EndType endType);
-    void Execute(double delta, PathsD solution);
-    void Execute(double delta, PolyTreeD solutionTree);
-}
-
-
-public static class ClipperOffsetDFactory
-{
-    public static IClipperOffsetD GenerateClipperOffsetD(double miterLimit = 2.0,
-                                                          double arcTolerance = 0.25,
-                                                          bool preserveCollinear = false,
-                                                          bool reverseSolution = false)
-    {
-        return new ClipperOffsetD(miterLimit, arcTolerance, preserveCollinear, reverseSolution);
-    }
-}
-
-internal class ClipperOffsetD : IClipperOffsetD
+public class ClipperOffsetD
 {
     private class Group
     {
